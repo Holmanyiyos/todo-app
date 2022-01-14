@@ -1,0 +1,28 @@
+.search-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: rgb(3, 109, 109);
+}
+
+input{
+    width: 30%;
+    height: 30px;
+    border: 1px solid rgb(222, 243, 243);
+    outline: none;
+    padding-left: 8px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 5px 0 0 5px;
+}
+
+.icon-search{
+    background-color: rgb(222, 243, 243);
+    height: 34px;
+    width: 34px;
+    text-align: center;
+    line-height: 34px;
+    font-size: 1.2rem;
+    border-radius: 0 5px 5px 0;
+    color: black;
+    cursor: pointer;
+}

@@ -1,13 +1,13 @@
 import React from "react";
 
 const estilos = {
-    color: "red",
-    backgroundColor: "yellow"
+    color: "#fff",
+    textAlign: "center"
 };
 
 function TodoCounter(){
     return(
-        <h2 style={estilos}>Has completado 2 de 3 TODOs</h2>
+        <h2 style={estilos}>2 of 3 tasks completed</h2>
     )
 }
 

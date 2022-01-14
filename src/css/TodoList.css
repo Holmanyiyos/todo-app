@@ -1,0 +1,9 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.date{
+    text-align: center;
+    font-size: 2rem;
+}

@@ -1,0 +1,37 @@
+.todo-item{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 70%;
+    box-shadow: 2px 3px lightgray;
+    border-radius: 5px;
+    background-color: rgb(222, 243, 243) ;
+}
+
+.todo-item .check-item{
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+.todo-item .close-item{
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: -4px;
+}
+.footer-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid lightgray;
+}
+.date-container span, .priority-container span{
+    margin-right: 10px;
+}
+.priority-container i{
+    color: gold;
+}

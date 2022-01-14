@@ -1,0 +1,10 @@
+.create-button{
+    width: 90%;
+    height: 30px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(15, 247, 247);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
