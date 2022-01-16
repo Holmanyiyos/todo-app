@@ -5,9 +5,9 @@ const estilos = {
     textAlign: "center"
 };
 
-function TodoCounter(){
+function TodoCounter({total, completed}){
     return(
-        <h2 style={estilos}>2 of 3 tasks completed</h2>
+        <h2 style={estilos}>{completed} of {total} tasks completed</h2>
     )
 }
 

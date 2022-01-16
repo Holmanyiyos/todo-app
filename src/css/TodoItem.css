@@ -15,13 +15,16 @@
     cursor: pointer;
     position: absolute;
     left: 20px;
+    top: 22px;
+    font-size: 1.2rem;
 }
 
 .todo-item .close-item{
     cursor: pointer;
     position: absolute;
     right: 20px;
-    top: -4px;
+    top: 22px;
+    font-size: 1.2rem;
 }
 .footer-item{
     width: 100%;
@@ -34,4 +37,11 @@
 }
 .priority-container i{
     color: gold;
+}
+
+.completed {
+    opacity: 0.6;
+}
+.completed .fa-check-circle{
+    color: green;
 }
