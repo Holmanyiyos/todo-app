@@ -1,26 +1,20 @@
 import React from "react";
-import "./css/TodoItem.css"
+import "../css/TodoItem.css"
 
 function TodoItem(props){
-    const onComplete = ()=>{
-        alert('Ya completaste la tarea ' + props.text)
-    };
-    const onDelete = ()=>{
-        alert('Borraste la tarea ' + props.text)
-    };
 
     if (props.priority === "high") {
         return(
         <li className={`todo-item ${props.priority} ${props.complete ? 'completed': ""}`}>
         <i 
             className={`${props.complete ? 'fas fa-check-circle': 'far fa-circle'} check-item`}
-            onClick={onComplete}
+            onClick={props.onComplete}
         >
         </i>
         <p className="text">{props.text}</p>
         <i 
             className="far fa-trash-alt close-item"
-            onClick={onDelete}
+            onClick={props.onDelete}
         >
         </i>
         <div className="footer-item">
@@ -40,13 +34,13 @@ function TodoItem(props){
             <li className={`todo-item ${props.complete ? 'completed': ""}`}>
             <i 
                 className={`${props.complete ? 'fas fa-check-circle': 'far fa-circle'} check-item`}
-                onClick={onComplete}
+                onClick={props.onComplete}
             >
             </i>
             <p className="text">{props.text}</p>
             <i 
                 className="far fa-trash-alt close-item"
-                onClick={onDelete}
+                onClick={props.onDelete}
             >
             </i>
                 <div className="footer-item">
@@ -66,13 +60,13 @@ function TodoItem(props){
             <li className={`todo-item ${props.complete ? 'completed': ""}`}>
             <i 
                 className={`${props.complete ? 'fas fa-check-circle': 'far fa-circle'} check-item`}
-                onClick={onComplete}
+                onClick={props.onComplete}
             >
             </i>
             <p className="text">{props.text}</p>
             <i 
                 className="far fa-trash-alt close-item"
-                onClick={onDelete}
+                onClick={props.onDelete}
             >
             </i>
                 <div className="footer-item">
