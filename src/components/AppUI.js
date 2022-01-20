@@ -6,6 +6,7 @@ import {CreateTodoButton} from "./CreateTodoButton.js";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { ProfileInfo } from './ProfileInfo';
+import { TodoForm } from "./TodoForm";
 import {Modal} from "./Modal"
 
 function AppUI(){
@@ -45,8 +46,7 @@ function AppUI(){
         </TodoList>
        {openModal && (
           <Modal>
-            <textarea name="task" id="task" cols="30" rows="10"></textarea>
-            <p>Crate a new task</p>
+            <TodoForm/>
           </Modal>
        )}
     </main>

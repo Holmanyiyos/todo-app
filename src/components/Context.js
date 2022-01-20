@@ -21,6 +21,15 @@ function TodoProvider(props){
     }
   
   
+    const addTodo =({text, priority})=>{
+      const newTodos = [...todos]
+      newTodos.push({
+        complete: false,
+        priority,
+        text,
+      }) ;
+      saveTodos(newTodos);  
+    }
     const completeTodo =(text)=>{
       const todoIndex = todos.findIndex(todo => todo.text === text);
       const newTodos = [...todos]
@@ -49,6 +58,7 @@ function TodoProvider(props){
             searchedTodos ,
             openModal,
             setOpenModal,
+            addTodo,
         }}>
             {props.children}
         </TodoContext.Provider>
