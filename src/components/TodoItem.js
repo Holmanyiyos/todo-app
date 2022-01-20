@@ -16,20 +16,20 @@ function TodoItem(props){
         >
         </i>
         <div className="footer-item">
-            {props.priority === "high" && 
+            {props.priority === "a" && 
             <div className="priority-container">
                 <span>Priority:</span>
                 <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
             </div>}
-            {props.priority === "low" && 
+            {props.priority === "c" && 
             <div className="priority-container">
                 <span>Priority:</span>
                 <i className="fas fa-star"></i>
             </div>}
-            {props.priority === "medium" && 
+            {props.priority === "b" && 
             <div className="priority-container">
                 <span>Priority:</span>
-                <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
+                <i className="fas fa-star"></i><i className="fas fa-star"></i>
             </div>}
         
             <div className="date-container">

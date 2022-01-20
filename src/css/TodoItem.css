@@ -45,3 +45,7 @@
 .completed .fa-check-circle{
     color: green;
 }
+.text{
+    width: 75%;
+    text-align: center;
+}
