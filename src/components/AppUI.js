@@ -8,6 +8,7 @@ import { TodoList } from "./TodoList";
 import { ProfileInfo } from './ProfileInfo';
 import { TodoForm } from "./TodoForm";
 import {Modal} from "./Modal"
+import {Loading} from "./Loading"
 
 function AppUI(){
   const {
@@ -18,6 +19,7 @@ function AppUI(){
     deleteTodo, 
     openModal,
     setOpenModal,
+    orderTodo,
   } = React.useContext(TodoContext);
     return(
     <div className='window'>
@@ -28,8 +30,8 @@ function AppUI(){
     </aside>
     <main className="main" key="main">
         <TodoSearch/>
-        <TodoList>
-            {loading && <p>Estamos cargando, espera un poco.</p>}
+        <TodoList orderTodo={orderTodo}>
+            {loading && <Loading/>}
             {error && <p>Hubo un error, ya puedes enloquecer.</p>}
             {(!loading && !searchedTodos.length) && <p>Create your first task</p>}
 

@@ -43,6 +43,21 @@ function TodoProvider(props){
       newTodos.splice(todoIndex, 1) ;
       saveTodos(newTodos);  
     }
+
+    const orderTodo = (num) =>{
+      const newTodos = [...todos] 
+      if (num === 1) {  
+        newTodos.sort((td1, td2)=>{
+          return (td1.priority < td2.priority)? -1 : 1
+        })
+        saveTodos(newTodos)
+      }else{
+        newTodos.sort((td1, td2)=>{
+          return (td1.complete > td2.complete)? -1 : 1
+        })
+        saveTodos(newTodos)
+      }
+    }
   
   
     return (
@@ -59,6 +74,7 @@ function TodoProvider(props){
             openModal,
             setOpenModal,
             addTodo,
+            orderTodo
         }}>
             {props.children}
         </TodoContext.Provider>

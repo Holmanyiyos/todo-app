@@ -1,0 +1,37 @@
+.container{
+    position: relative;
+}
+
+.container .loader{
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgb(15, 247, 247);
+    border-top: solid 5px #064555;
+    border-radius: 50%;
+    animation: loader .8s linear infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.container .message{
+    color:#064555 ;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    animation: message 1s alternate infinite ease-in-out;
+}
+
+@keyframes message {
+    0%{
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
