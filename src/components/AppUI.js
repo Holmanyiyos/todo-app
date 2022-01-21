@@ -37,13 +37,14 @@ function AppUI(){
 
             {searchedTodos.map( todo =>(
           <TodoItem 
-            key={todo.text} 
+            key={todo.id} 
             text= {todo.text} 
             complete= {todo.complete} 
-            onComplete={()=> completeTodo(todo.text)}
-            onDelete = {()=> deleteTodo(todo.text)}
+            onComplete={()=> completeTodo(todo.id)}
+            onDelete = {()=> deleteTodo(todo.id)}
             priority= {todo.priority}
-            date= {todo.date}/>
+            id= {todo.id}
+            />
         ))}
         </TodoList>
        {openModal && (

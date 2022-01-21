@@ -6,13 +6,12 @@ const TodoContext = React.createContext();
 function TodoProvider(props){
     const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage("TODOS_V1", []);
     const [search, setSearch] = React.useState('');
-    const [openModal, setOpenModal] = React.useState(false); 
+    const [openModal, setOpenModal] = React.useState(false);
 
     const completedTodos = todos.filter(todo=> !!todo.complete).length;
     const totalTodos = todos.length;
   
     let searchedTodos = [];
-    
     if (!search.length >= 1) {
       searchedTodos = todos;
     }else{
@@ -20,25 +19,34 @@ function TodoProvider(props){
       searchedTodos = filtered;
     }
   
-  
+    const generateId=()=>{
+      let id;
+      if (todos.length > 0) {
+        id = todos[todos.length -1].id + 1;
+      }else{
+        id = 1
+      }
+      return id
+    }
     const addTodo =({text, priority})=>{
       const newTodos = [...todos]
       newTodos.push({
         complete: false,
         priority,
         text,
+        id:generateId(),
       }) ;
-      saveTodos(newTodos);  
+      saveTodos(newTodos);
     }
-    const completeTodo =(text)=>{
-      const todoIndex = todos.findIndex(todo => todo.text === text);
+    const completeTodo =(id)=>{
+      const todoIndex = todos.findIndex(todo => todo.id === id);
       const newTodos = [...todos]
       newTodos[todoIndex].complete = true ;
       saveTodos(newTodos);  
     }
   
-    const deleteTodo =(text)=>{
-      const todoIndex = todos.findIndex(todo => todo.text === text);
+    const deleteTodo =(id)=>{
+      const todoIndex = todos.findIndex(todo => todo.id === id);
       const newTodos = [...todos]
       newTodos.splice(todoIndex, 1) ;
       saveTodos(newTodos);  

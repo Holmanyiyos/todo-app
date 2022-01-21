@@ -3,10 +3,24 @@
     flex-direction: column;
     align-items: center;
 }
-.date{
+.filter-container .title{
     text-align: center;
     font-size: 2rem;
+    margin-right: 20px;
 }
 .filter{
     cursor: pointer;
+}
+
+.section-list{
+    position: relative;
+}
+.filter-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-container i{
+    font-size: 1.2rem;
 }
