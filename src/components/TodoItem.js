@@ -2,8 +2,17 @@ import React from "react";
 import "../css/TodoItem.css"
 
 function TodoItem(props){
+    const handelClick= (e)=>{
+        if (e.target.nodeName === "I") {
+            
+        }else{
+            props.editTodo(props.id)
+            props.setOpenModal(prevState => !prevState)
+            props.whoModal("edit")
+        }
+    }
         return(
-        <li className={`todo-item ${props.priority} ${props.complete ? 'completed': ""}`}>
+        <li className={`todo-item ${props.priority} ${props.complete ? 'completed': ""}`} onClick={handelClick}>
         <i 
             className={`${props.complete ? 'fas fa-check-circle': 'far fa-circle'} check-item`}
             onClick={props.onComplete}

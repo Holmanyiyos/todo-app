@@ -4,6 +4,7 @@ import "../css/CreateTodoButton.css"
 function CreateTodoButton(props){
     const onClickButton =()=>{
      props.setOpenModal(prevState => !prevState)
+     props.whoModal("create")
     }
     return(
         <button 

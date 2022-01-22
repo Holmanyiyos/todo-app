@@ -7,8 +7,9 @@ import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { ProfileInfo } from './ProfileInfo';
 import { TodoForm } from "./TodoForm";
-import {Modal} from "./Modal"
-import {Loading} from "./Loading"
+import {Modal} from "./Modal";
+import {Loading} from "./Loading";
+import {EditTodo} from "./EditTodo";
 
 function AppUI(){
   const {
@@ -20,13 +21,18 @@ function AppUI(){
     openModal,
     setOpenModal,
     orderTodo,
+    editTodo,
+    TodoToEdit,
+    dataEdit,
+    whoModal,
+    modal
   } = React.useContext(TodoContext);
     return(
     <div className='window'>
     <aside className="aside" key="aside">
       <ProfileInfo/>
         <TodoCounter/>
-        <CreateTodoButton openModal={openModal} setOpenModal = {setOpenModal}/>
+        <CreateTodoButton whoModal={whoModal} openModal={openModal} setOpenModal = {setOpenModal}/>
     </aside>
     <main className="main" key="main">
         <TodoSearch/>
@@ -44,12 +50,16 @@ function AppUI(){
             onDelete = {()=> deleteTodo(todo.id)}
             priority= {todo.priority}
             id= {todo.id}
+            openModal = {openModal}
+            setOpenModal = {setOpenModal}
+            editTodo = {editTodo}
+            whoModal={whoModal}
             />
         ))}
         </TodoList>
        {openModal && (
           <Modal>
-            <TodoForm/>
+            {(modal==="edit")?<EditTodo todo= {dataEdit}/>: <TodoForm/>}
           </Modal>
        )}
     </main>
