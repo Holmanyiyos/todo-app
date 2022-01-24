@@ -5,7 +5,6 @@ import { TodoItem } from "./TodoItem";
 import {CreateTodoButton} from "./CreateTodoButton.js";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
-import { ProfileInfo } from './ProfileInfo';
 import { TodoForm } from "./TodoForm";
 import {Modal} from "./Modal";
 import {Loading} from "./Loading";
@@ -22,7 +21,6 @@ function AppUI(){
     setOpenModal,
     orderTodo,
     editTodo,
-    TodoToEdit,
     dataEdit,
     whoModal,
     modal
@@ -30,7 +28,6 @@ function AppUI(){
     return(
     <div className='window'>
     <aside className="aside" key="aside">
-      <ProfileInfo/>
         <TodoCounter/>
         <CreateTodoButton whoModal={whoModal} openModal={openModal} setOpenModal = {setOpenModal}/>
     </aside>

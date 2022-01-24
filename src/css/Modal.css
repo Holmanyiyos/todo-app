@@ -24,3 +24,10 @@
     background-color: rgb(222, 243, 243);
     font-weight: bold;
 }
+
+@media (max-width: 500px) {
+    .modal{
+        width: 90%;
+        height: 50%;
+    }
+}

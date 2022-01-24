@@ -4,7 +4,7 @@ import "../css/TodoForm.css"
 
 function TodoForm(){
     const [newTodoValue, setNewTodoValue] = React.useState("");
-    const [newPriority, setNewPriority] = React.useState("low");
+    const [newPriority, setNewPriority] = React.useState("c");
 
     const {
         addTodo,

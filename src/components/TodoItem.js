@@ -40,11 +40,7 @@ function TodoItem(props){
                 <span>Priority:</span>
                 <i className="fas fa-star"></i><i className="fas fa-star"></i>
             </div>}
-        
-            <div className="date-container">
-            <span>Date:</span>
-            <span className="date-item">{props.date}</span>
-            </div>
+    
         </div>
     </li>
        )

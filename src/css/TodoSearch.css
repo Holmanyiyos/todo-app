@@ -26,3 +26,12 @@ input{
     color: black;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+
+    .search-container{
+        height: 30%;
+        display: flex;
+        align-items: center;
+      }
+}

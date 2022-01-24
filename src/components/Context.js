@@ -5,6 +5,7 @@ const TodoContext = React.createContext();
 
 function TodoProvider(props){
     const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage("TODOS_V1", []);
+
     const [search, setSearch] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
     const [dataEdit, setDataEdit] = React.useState("");
@@ -24,21 +25,17 @@ function TodoProvider(props){
     }
   
     const generateId=()=>{
-      let id;
-      if (todos.length > 0) {
-        id = todos[todos.length -1].id + 1;
-      }else{
-        id = 1
-      }
+      let id = Math.random().toString(36).slice(2)
       return id
     }
     const addTodo =({text, priority})=>{
       const newTodos = [...todos]
+      const id = generateId()
       newTodos.push({
         complete: false,
         priority,
         text,
-        id:generateId(),
+        id:id,
       }) ;
       saveTodos(newTodos);
     }

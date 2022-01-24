@@ -49,3 +49,6 @@
     min-height: 20%;
     border: none;
 }
+.terminated{
+    display: flex;
+}
