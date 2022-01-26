@@ -12,7 +12,7 @@ const EditTodo = (todo)=>{
         setOpenModal
     } = React.useContext(TodoContext);
 
-    React.useEffect(()=>{
+    React.useLayoutEffect(()=>{
         if (item.priority === "a") {
             const priorityCheck = document.getElementById("a");
             priorityCheck.checked = true 
