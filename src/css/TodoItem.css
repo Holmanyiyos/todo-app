@@ -6,7 +6,8 @@
     justify-content: center;
     margin-bottom: 15px;
     width: 70%;
-    box-shadow: 2px 3px lightgray;
+    min-height: 150px;
+    box-shadow: 3px 5px lightgray;
     border-radius: 5px;
     background-color: rgb(222, 243, 243) ;
 }
@@ -15,22 +16,26 @@
     cursor: pointer;
     position: absolute;
     left: 20px;
-    top: 22px;
+    top: 60px;
     font-size: 1.2rem;
 }
 
-.todo-item .close-item{
+.todo-item .close-item , .todo-item .edit-item{
     cursor: pointer;
     position: absolute;
+    right: 25px;
+    bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.todo-item .edit-item{
     right: 20px;
-    top: 22px;
-    font-size: 1.2rem;
+    top: 20px;
 }
 .footer-item{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    border-top: 1px solid lightgray;
 }
 .date-container span, .priority-container span{
     margin-right: 10px;
