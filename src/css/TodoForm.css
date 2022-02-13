@@ -1,13 +1,33 @@
 .form{
+    width: 100%;
     box-sizing: border-box;
-    width: 90%;
-    margin: auto;
+    margin:auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     text-align: center;
 }
+.form__header{
+    display: flex;
+    flex-direction: column;
+    background-color: #f9be7c;
+    border-radius: 0 0 25px 25px;
+}
+input{
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    margin: auto;
+}
+
+   
 .form label{
-    font-size: 1.2rem;
+    font-size: 0.8rem;
+    text-align: left;
+    margin-left: 20px;
+    color: gray;
 }
 .priority{
     display: flex;

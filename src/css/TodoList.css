@@ -32,7 +32,12 @@
     flex-direction: column;
     align-items: center;
 }
-
+.weekContainer{
+    width: 90%;
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
 
 @media (max-width: 500px) {
     .section-list{

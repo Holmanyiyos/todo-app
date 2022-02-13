@@ -2,25 +2,16 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    align-items: center;
-    justify-content: center;
+    padding-left: 20px;
     margin-bottom: 15px;
-    width: 70%;
+    width: 80%;
     min-height: 150px;
     box-shadow: 3px 5px lightgray;
     border-radius: 5px;
-    background-color: rgb(222, 243, 243) ;
+    background-color: #ffd29e;
 }
 
-.todo-item .check-item{
-    cursor: pointer;
-    position: absolute;
-    left: 20px;
-    top: 60px;
-    font-size: 1.2rem;
-}
-
-.todo-item .close-item , .todo-item .edit-item{
+.todo-item .close-item{
     cursor: pointer;
     position: absolute;
     right: 25px;
@@ -29,30 +20,23 @@
 }
 
 .todo-item .edit-item{
+    cursor: pointer;
+    position: absolute;
     right: 20px;
     top: 20px;
+    font-size: 1.3rem;
 }
-.footer-item{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-.date-container span, .priority-container span{
+
+.date-container span{
     margin-right: 10px;
 }
-.priority-container i{
-    color: gold;
-}
+
 
 .completed {
     opacity: 0.6;
 }
-.completed .fa-check-circle{
-    color: green;
-}
-.text{
-    width: 75%;
-    text-align: center;
+.todo-item .text{
+    margin-left: 0;
 }
 
 @media (max-width: 500px) {

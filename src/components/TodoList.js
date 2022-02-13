@@ -2,18 +2,29 @@ import React from "react";
 import "../css/TodoList.css"
 
 function TodoList(props){
+    const today = new Date().toDateString();
+    const numberDay = new Date().getDate();
+    const week = ["Sun", "Mon", "Tue", "Wed","Thu", "Fri", "Sat"];
+    const numDay = []
+    function positionDay(numero){
+        for(let i= 0; i< week.length; i++){
+            numDay.push(i - numero + numberDay)
+        }   
+    }
+    for(let i= 0; i< week.length; i++){
+        if(today.includes(week[i])){
+            positionDay(i)
+        }
+    }
     return(
         <section className="section-list">
-            <div className="filter-container">
-            <h2 className="title">Tasks</h2>
-            <div className="filter-btn-container">
-            <label>Priority</label>
-            <button className="filter" onClick={()=>{props.orderTodo(1)}}><i className="fas fa-sort-numeric-down"></i></button>
-            </div>
-            <div className="filter-btn-container">
-            <label>Completed</label>
-            <button className="filter" onClick={()=>{props.orderTodo(2)}}><i className="far fa-check-circle"></i></button>
-            </div>
+            <div className="weekContainer">
+                {week.map(
+                    (e, index)=><div className="dateContainer" key={e}>
+                            <h4>{e}</h4>
+                            <p>{numDay[index]}</p>
+                        </div>
+                )}
             </div>
             <ul className="list">
                 {props.children}

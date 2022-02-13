@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import './css/index.css';
 import App from './App';
 
 ReactDOM.render(
-    <App />,
+  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <App />
+  </MuiPickersUtilsProvider>,
   document.getElementById('root')
 );
-
-// ReactDOM.createPortal(
-//   <App/>,
-//   document.getElementById
-// )

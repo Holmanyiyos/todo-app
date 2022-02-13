@@ -1,6 +1,5 @@
 import React from "react";
 import { TodoContext } from "./Context";
-import { TodoCounter } from "./TodoCounter";
 import { TodoItem } from "./TodoItem";
 import {CreateTodoButton} from "./CreateTodoButton.js";
 import { TodoSearch } from "./TodoSearch";
@@ -9,8 +8,11 @@ import { TodoForm } from "./TodoForm";
 import {Modal} from "./Modal";
 import {Loading} from "./Loading";
 import {EditTodo} from "./EditTodo";
+import {Header} from "./Header";
+import {StateToDo} from "./StateToDo"
 
 function AppUI(){
+  const today = new Date().toLocaleDateString();
   const {
     error, 
     loading, 
@@ -28,11 +30,16 @@ function AppUI(){
     return(
     <div className='window'>
     <aside className="aside" key="aside">
-        <TodoCounter/>
-        <CreateTodoButton whoModal={whoModal} openModal={openModal} setOpenModal = {setOpenModal}/>
+        <Header/>
+        <h2>My Tasks</h2>
+        <StateToDo/>
     </aside>
     <main className="main" key="main">
         <TodoSearch/>
+        <div className="main__header">
+        <h2>Today <span>{today}</span></h2>
+        <CreateTodoButton whoModal={whoModal} openModal={openModal} setOpenModal = {setOpenModal}/>
+        </div>
         <TodoList orderTodo={orderTodo}>
             {loading && <Loading/>}
             {error && <p>Hubo un error, ya puedes enloquecer.</p>}
@@ -41,6 +48,7 @@ function AppUI(){
             {searchedTodos.map( todo =>(
           <TodoItem 
             key={todo.id} 
+            title= {todo.title}
             text= {todo.text} 
             complete= {todo.complete} 
             onComplete={()=> completeTodo(todo.id)}

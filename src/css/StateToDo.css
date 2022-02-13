@@ -1,0 +1,36 @@
+.itemState{
+    width: 60%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.itemState i{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.state__icon-container{
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    background-color: orange;
+    text-align: center;
+    line-height: 65px;
+}
+
+.Done .state__icon-container{
+    background-color: green;
+}
+
+.ToDo .state__icon-container{
+    background-color: rgb(252, 45, 45);
+}
+.text{
+    width: auto;
+    height: auto;
+    line-height: 0.7rem;
+    margin-left: 15px;
+    text-align: left;
+}

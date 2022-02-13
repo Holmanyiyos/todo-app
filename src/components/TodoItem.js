@@ -13,30 +13,13 @@ function TodoItem(props){
         }
     }
         return(
-        <li className={`todo-item ${props.priority} ${props.complete ? 'completed': ""}`}>
+        <li className={`todo-item ${props.complete ? 'completed': ""}`}>
         <div className="footer-item">
-            {props.priority === "a" && 
             <div className="priority-container">
-                <span>Priority:</span>
-                <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-            </div>}
-            {props.priority === "c" && 
-            <div className="priority-container">
-                <span>Priority:</span>
-                <i className="fas fa-star"></i>
-            </div>}
-            {props.priority === "b" && 
-            <div className="priority-container">
-                <span>Priority:</span>
-                <i className="fas fa-star"></i><i className="fas fa-star"></i>
-            </div>}
+            </div>
     
         </div>
-        <i 
-            className={`${props.complete ? 'fas fa-check-circle': 'far fa-circle'} check-item`}
-            onClick={props.onComplete}
-        >
-        </i>
+        <h3>{props.title}</h3>
         <p className="text">{props.text}</p>
         <i 
             className="far fa-trash-alt close-item"

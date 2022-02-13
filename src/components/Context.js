@@ -28,14 +28,15 @@ function TodoProvider(props){
       let id = Math.random().toString(36).slice(2)
       return id
     }
-    const addTodo =({text, priority})=>{
+    const addTodo =({title, text, date})=>{
       const newTodos = [...todos]
       const id = generateId()
       newTodos.push({
         complete: false,
-        priority,
+        title,
         text,
         id:id,
+        date
       }) ;
       saveTodos(newTodos);
     }
@@ -53,20 +54,6 @@ function TodoProvider(props){
       saveTodos(newTodos);  
     }
 
-    const orderTodo = (num) =>{
-      const newTodos = [...todos] 
-      if (num === 1) {  
-        newTodos.sort((td1, td2)=>{
-          return (td1.priority < td2.priority)? -1 : 1
-        })
-        saveTodos(newTodos)
-      }else{
-        newTodos.sort((td1, td2)=>{
-          return (td1.complete > td2.complete)? -1 : 1
-        })
-        saveTodos(newTodos)
-      }
-    }
     const TodoToEdit =(task)=>{
       const newTodos = [...todos];
       const todoIndex = todos.findIndex(todo => todo.id === task.id);
@@ -103,7 +90,6 @@ function TodoProvider(props){
             openModal,
             setOpenModal,
             addTodo,
-            orderTodo,
             editTodo,
             dataEdit,
             TodoToEdit,
