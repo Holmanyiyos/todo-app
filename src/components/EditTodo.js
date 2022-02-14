@@ -4,10 +4,10 @@ import {TodoContext} from "./Context"
 
 const EditTodo = (todo)=>{
     const item = todo.todo;
-    const [dateSelected, setDateSelected] = React.useState(new Date());
+    const [dateSelected, setDateSelected] = React.useState(item.date);
     const [newTodoValue, setNewTodoValue] = React.useState(item.text);
     const [isCompleted, setIsCompleted] = React.useState(todo.complete);
-    const [newTodoTitle, setNewTodoTitle] = React.useState("");
+    const [newTodoTitle, setNewTodoTitle] = React.useState(item.title);
 
     const {
         TodoToEdit,
@@ -42,7 +42,7 @@ const EditTodo = (todo)=>{
     const onSubmit = (e)=> {
         e.preventDefault();
         setOpenModal(false)
-        TodoToEdit({text: newTodoValue, complete:isCompleted, id: item.id})
+        TodoToEdit({text: newTodoValue,title: newTodoTitle, complete:isCompleted, id: item.id})
     }
     const onChange = (e)=> {
         setNewTodoValue(e.target.value);
@@ -57,7 +57,7 @@ const EditTodo = (todo)=>{
                 <h2>Edit your task</h2>
                 <div className="title-container">
                     <label htmlFor="title">Title</label>
-                    <input type="text" id="title" onChange={onChange2}/>
+                    <input type="text" id="title" onChange={onChange2} value={newTodoTitle}/>
                 </div>
                 <div className="date-container">
                     <label htmlFor="date">Date</label>

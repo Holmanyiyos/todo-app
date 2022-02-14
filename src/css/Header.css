@@ -9,6 +9,7 @@
     border-radius: 0 0 25px 25px;
 }
 .header__image{
+    position: relative;
     width: 20%;
 }
 .header__image img{
@@ -16,4 +17,21 @@
     border-radius: 50%;
     border: 7px solid black;
     border-radius: 50%;
+}
+.randomImage{
+    width: 90px;
+    height: 30px;
+    position: absolute;
+    border-radius: 15px;
+    background-color: #fff9eb;
+    bottom: 0;
+    right: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+.header__image:hover .randomImage{
+    opacity: 1;
 }
