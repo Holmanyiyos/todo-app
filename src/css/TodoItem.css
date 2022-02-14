@@ -36,6 +36,7 @@
     opacity: 0.6;
 }
 .todo-item .text{
+    width: 90%;
     margin-left: 0;
 }
 

@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { DatePicker } from "@material-ui/pickers";
 import {TodoContext} from "./Context"
 
 const EditTodo = (todo)=>{
     const item = todo.todo;
+    const [dateSelected, setDateSelected] = React.useState(new Date());
     const [newTodoValue, setNewTodoValue] = React.useState(item.text);
-    const [newPriority, setNewPriority] = React.useState(item.priority);
     const [isCompleted, setIsCompleted] = React.useState(todo.complete);
+    const [newTodoTitle, setNewTodoTitle] = React.useState("");
 
     const {
         TodoToEdit,
@@ -13,17 +15,6 @@ const EditTodo = (todo)=>{
     } = React.useContext(TodoContext);
 
     React.useLayoutEffect(()=>{
-        if (item.priority === "a") {
-            const priorityCheck = document.getElementById("a");
-            priorityCheck.checked = true 
-        } else if (item.priority === "b") {
-            const priorityCheck = document.getElementById("b");
-            priorityCheck.checked = true
-        }else{
-            const priorityCheck = document.getElementById("c");
-            priorityCheck.checked = true
-        }
-    
         if (item.complete) {
             const idCheck = document.getElementById("true");
             idCheck.checked = true 
@@ -31,30 +22,14 @@ const EditTodo = (todo)=>{
             const idCheck = document.getElementById("false");
             idCheck.checked = true
         }
-    },[])
+    })
 
     const onCancel = ()=> {
         setOpenModal(false)
     }
-    const isChecked = (e)=>{
-        const high = document.getElementById('a');
-        const low = document.getElementById('c');
-        const medium = document.getElementById('b');
-
-        if (e.target.checked) {
-            high.checked = false;
-            medium.checked = false;
-            low.checked = false;
-            e.target.checked = true;
-            setNewPriority(e.target.id);
-        }else{
-            setNewPriority("c");
-        }
-    }
     const completChecked = (e)=>{
         const completedTrue = document.getElementById('true');
         const completedFalse = document.getElementById('false');
-
         if (e.target.checked) {
             completedTrue.checked = false;
             completedFalse.checked = false;
@@ -67,28 +42,36 @@ const EditTodo = (todo)=>{
     const onSubmit = (e)=> {
         e.preventDefault();
         setOpenModal(false)
-        TodoToEdit({text: newTodoValue, priority:newPriority, complete:isCompleted, id: item.id})
+        TodoToEdit({text: newTodoValue, complete:isCompleted, id: item.id})
     }
     const onChange = (e)=> {
         setNewTodoValue(e.target.value);
     }
+    const onChange2 = (e)=> {
+        setNewTodoTitle(e.target.value);
+    }
 
     return(
-        <form onSubmit={onSubmit} className="form">
-            <label>Task</label>
-            <textarea 
-            value={newTodoValue}
-            onChange={onChange}
-            className="textArea"
-            />
-            <label>Priority</label>
-            <div className="priority">
-                <label>Low</label>
-                <input type="checkbox" id="c" onClick={isChecked}/>
-                <label>Medium</label>
-                <input type="checkbox" id="b" onChange={isChecked}/>
-                <label>High</label>
-                <input type="checkbox" id="a" onChange={isChecked}/>
+        <form onSubmit={onSubmit} className="form form-edit">
+            <div className="form__header">
+                <h2>Edit your task</h2>
+                <div className="title-container">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" onChange={onChange2}/>
+                </div>
+                <div className="date-container">
+                    <label htmlFor="date">Date</label>
+                    <DatePicker className="date" id="date" value={dateSelected} onChange={setDateSelected}/>
+                </div>
+            </div>
+            <div className="textArea-container edit-textArea">
+                <label htmlFor="description">Description</label>
+                <textarea 
+                value={newTodoValue}
+                onChange={onChange}
+                className="textArea"
+                id="description"
+                />
             </div>
             <div className="terminated">
                 <label>Completed</label>
