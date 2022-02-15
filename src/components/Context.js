@@ -14,7 +14,8 @@ function TodoProvider(props){
 
 
 
-    const completedTodos = todos.filter(todo=> !!todo.complete).length;
+    const completedTodos = todos.filter(todo=> todo.state === "done").length;
+    const inProgressTodos = todos.filter(todo=> todo.state === "in progress").length;
     const totalTodos = todos.length;
   
     let searchedTodos = [];
@@ -48,7 +49,7 @@ function TodoProvider(props){
       const newTodos = [...todos]
       const id = generateId()
       newTodos.push({
-        complete: false,
+        state: "to do",
         title,
         text,
         id:id,
@@ -75,7 +76,7 @@ function TodoProvider(props){
       const todoIndex = todos.findIndex(todo => todo.id === task.id);
       newTodos[todoIndex].text = task.text;
       newTodos[todoIndex].priority = task.priority;
-      newTodos[todoIndex].complete = task.complete;
+      newTodos[todoIndex].state = task.state;
       saveTodos(newTodos)
     }
 
@@ -99,6 +100,7 @@ function TodoProvider(props){
             totalTodos ,
             filterDay,
             completeTodo ,
+            inProgressTodos,
             completedTodos ,
             search,
             deleteTodo ,

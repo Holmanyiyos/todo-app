@@ -3,7 +3,7 @@ import { TodoContext } from "./Context";
 import "../css/StateToDo.css"
 
 function StateToDo(){
-    const {totalTodos, completedTodos} = React.useContext(TodoContext)
+    const {totalTodos, completedTodos, inProgressTodos} = React.useContext(TodoContext)
     return(
     <>
         <div className="ToDo itemState">
@@ -12,7 +12,7 @@ function StateToDo(){
             </div>
             <div className="text">
                 <h3>To Do</h3>
-                <p>{totalTodos - completedTodos} pending tasks</p>
+                <p>{totalTodos - completedTodos - inProgressTodos} pending tasks</p>
             </div>
         </div>
         <div className="InProgress itemState">
@@ -21,7 +21,7 @@ function StateToDo(){
         </div>
             <div className="text">
                 <h3>In Progress</h3>
-                <p>0 tasks started</p>
+                <p>{inProgressTodos} tasks started</p>
             </div>
         </div>
         <div className="Done itemState">

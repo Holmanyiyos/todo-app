@@ -6,7 +6,7 @@ const EditTodo = (todo)=>{
     const item = todo.todo;
     const [dateSelected, setDateSelected] = React.useState(item.date);
     const [newTodoValue, setNewTodoValue] = React.useState(item.text);
-    const [isCompleted, setIsCompleted] = React.useState(todo.complete);
+    const [isState, setIsState] = React.useState(todo.state);
     const [newTodoTitle, setNewTodoTitle] = React.useState(item.title);
 
     const {
@@ -14,38 +14,31 @@ const EditTodo = (todo)=>{
         setOpenModal
     } = React.useContext(TodoContext);
 
-    React.useLayoutEffect(()=>{
-        if (item.complete) {
-            const idCheck = document.getElementById("true");
-            idCheck.checked = true 
-        } else{
-            const idCheck = document.getElementById("false");
-            idCheck.checked = true
-        }
-    },[])
+    // React.useLayoutEffect(()=>{
+    //     if (item.complete) {
+    //         const idCheck = document.getElementById("true");
+    //         idCheck.checked = true 
+    //     } else{
+    //         const idCheck = document.getElementById("false");
+    //         idCheck.checked = true
+    //     }
+    // },[])
 
     const onCancel = ()=> {
         setOpenModal(false);
         window.scrollTo(0,window.screen.height);
     }
-    const completChecked = (e)=>{
-        const completedTrue = document.getElementById('true');
-        const completedFalse = document.getElementById('false');
-        if (e.target.checked) {
-            completedTrue.checked = false;
-            completedFalse.checked = false;
-            e.target.checked = true;
-            setIsCompleted((e.target.id === "true")? true : false);
-        }else{
-            completedFalse.checked = true;
-            setIsCompleted(false);
-        }
-    }
+
+    const handleSelect = (e)=>{
+        const selected = document.getElementById("formState");
+        setIsState(selected.value)
+    } 
+    
     const onSubmit = (e)=> {
         e.preventDefault();
         setOpenModal(false);
         window.scrollTo(0, window.screen.height);
-        TodoToEdit({text: newTodoValue,title: newTodoTitle, complete:isCompleted, id: item.id})
+        TodoToEdit({text: newTodoValue,title: newTodoTitle, state:isState, id: item.id})
     }
     const onChange = (e)=> {
         setNewTodoValue(e.target.value);
@@ -76,12 +69,12 @@ const EditTodo = (todo)=>{
                 id="description"
                 />
             </div>
-            <div className="terminated">
-                <label>Completed</label>
-                <input type="checkbox" id="true" onClick={completChecked}/>
-                <label>Incomplete</label>
-                <input type="checkbox" id="false" onClick={completChecked}/>
-            </div>
+            <label htmlFor="formState"> State</label>
+            <select id="formState" onChange={handleSelect}>
+                <option value="to do">To Do</option>
+                <option value="in progress">In Progress</option>
+                <option value="done">Done</option>
+            </select>
         <div className="button-container">
             <button onClick={onCancel} type="button" className="btn-cancel">Cancel</button>
             <button type="submit" className="btn-add">Save</button>
