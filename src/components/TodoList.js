@@ -32,12 +32,18 @@ function TodoList(props){
     }
 
     const paintNumber=(card)=>{
-        const all = document.querySelectorAll(".dateContainer");
-        for (let i = 0; i < all.length; i++) {
-            all[i].lastChild.classList.remove("clicked");
-        }
         const selected = document.getElementById(card);
-        selected.lastChild.classList.toggle("clicked")
+        const all = document.querySelectorAll(".dateContainer");
+        if (selected.lastChild.classList.contains("clicked")) {
+            for (let i = 0; i < all.length; i++) {
+                all[i].lastChild.classList.remove("clicked");
+            }
+        }else{
+            for (let i = 0; i < all.length; i++) {
+                all[i].lastChild.classList.remove("clicked");
+            }
+            selected.lastChild.classList.add("clicked")
+        }
     }
 
     return(

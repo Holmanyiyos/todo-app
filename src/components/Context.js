@@ -7,7 +7,7 @@ function TodoProvider(props){
     const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage("TODOS_V1", []);
 
     const [search, setSearch] = React.useState('');
-    const [dateSearch, setDateSearch] = React.useState('');
+    const [dateSearch, setDateSearch] = React.useState([]);
     const [openModal, setOpenModal] = React.useState(false);
     const [dataEdit, setDataEdit] = React.useState("");
     const [modal, setModal] = React.useState("");
@@ -32,11 +32,11 @@ function TodoProvider(props){
     }
   
     const filterDay = (date)=>{
-      if (dateSearch.length >=1) {
-        setDateSearch("")
-      }else{
       const filtered = todos.filter(todo => todo.date.includes(date));
-      setDateSearch(filtered)
+      if (dateSearch.length >=1 && dateSearch === filtered) {
+        setDateSearch([])
+      }else{
+        setDateSearch(filtered)
       }
     }
 

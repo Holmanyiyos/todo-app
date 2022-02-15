@@ -53,7 +53,7 @@ function AppUI(){
             title= {todo.title}
             text= {todo.text}
             date= {todo.date}
-            complete= {todo.complete} 
+            state= {todo.state} 
             onComplete={()=> completeTodo(todo.id)}
             onDelete = {()=> deleteTodo(todo.id)}
             priority= {todo.priority}

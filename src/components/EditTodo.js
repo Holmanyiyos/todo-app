@@ -14,15 +14,10 @@ const EditTodo = (todo)=>{
         setOpenModal
     } = React.useContext(TodoContext);
 
-    // React.useLayoutEffect(()=>{
-    //     if (item.complete) {
-    //         const idCheck = document.getElementById("true");
-    //         idCheck.checked = true 
-    //     } else{
-    //         const idCheck = document.getElementById("false");
-    //         idCheck.checked = true
-    //     }
-    // },[])
+    React.useLayoutEffect(()=>{
+        const selected = document.getElementById("formState");
+        selected.value = item.state;
+    },[])
 
     const onCancel = ()=> {
         setOpenModal(false);

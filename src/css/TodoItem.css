@@ -31,10 +31,17 @@
     margin-right: 10px;
 }
 
-
-.completed {
-    opacity: 0.6;
+/*--------- STATES -------------*/
+.done{
+    background-color: rgb(146, 202, 146);
 }
+.progress{
+    background-color: rgb(255, 165, 0, 0.6);
+}
+.do{
+    background-color: rgb(252, 45, 45, 0.5);
+}
+
 .todo-item .text{
     width: 90%;
     margin-left: 0;

@@ -13,7 +13,7 @@ function TodoItem(props){
         }
     }
         return(
-        <li className={`todo-item ${props.complete ? 'completed': ""}`}>
+        <li className={`todo-item ${props.state}`}>
         <h3>{props.title}</h3>
         <p className="text">{props.text}</p>
         <i 
@@ -25,7 +25,7 @@ function TodoItem(props){
         <i className="fas fa-edit edit-item"
         onClick={handelClick}
         ></i>
-        <p>Finish before: {props.date}</p>
+        <p>Finish before: <b>{props.date}</b></p>
     </li>
        )
 }

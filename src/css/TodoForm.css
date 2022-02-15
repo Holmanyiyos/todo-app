@@ -5,6 +5,7 @@
     margin:auto;
     text-align: center;
     background-color: rgb(243, 243, 243);
+    font-size: 1.1rem;
 }
 /*------HEADER-------*/
 .form__header{
@@ -27,6 +28,7 @@
     width: 78%;
 }
 .form input, textarea{
+    font-size: 1.1rem;
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -106,6 +108,11 @@
     width: 100%;
     padding: 20px 0;
 }
-.terminated{
-    display: flex;
+select{
+    width: 30%;
+    min-height: 30px;
+    display: block;
+    margin: 10px auto;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
 }
