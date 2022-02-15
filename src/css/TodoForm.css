@@ -47,13 +47,19 @@
 }
    
 .form label{
+    width: 90%;
     font-size: 0.9rem;
-    margin-left: 20px;
+    text-align: left;
+    margin-left: 25px;
     color: gray;
 }
 .textArea-container{
+    text-align: left;
     width: 84%;
     margin: 20px auto 0 auto;
+}
+.textArea-container label{
+    margin-left: 0;
 }
 
 /*-----BUTTONS-----*/
@@ -97,7 +103,14 @@
     outline: none;
 }
 .textArea::-webkit-scrollbar{
-    display: none;
+    background-color: #fff9eb;
+    max-width: 15px;
+    border-radius:10px;
+}
+.textArea::-webkit-scrollbar-thumb{
+    background-color: #f9be7c;
+    max-width: 15px;
+    border-radius:10px;
 }
 
 .form .edit-textArea textarea{

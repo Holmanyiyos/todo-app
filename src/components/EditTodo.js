@@ -6,9 +6,8 @@ const EditTodo = (todo)=>{
     const item = todo.todo;
     const [dateSelected, setDateSelected] = React.useState(item.date);
     const [newTodoValue, setNewTodoValue] = React.useState(item.text);
-    const [isState, setIsState] = React.useState(todo.state);
+    const [isState, setIsState] = React.useState(item.state);
     const [newTodoTitle, setNewTodoTitle] = React.useState(item.title);
-
     const {
         TodoToEdit,
         setOpenModal

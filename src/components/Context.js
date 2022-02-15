@@ -35,7 +35,8 @@ function TodoProvider(props){
       const filtered = todos.filter(todo => todo.date.includes(date));
       if (dateSearch.length >=1 && dateSearch === filtered) {
         setDateSearch([])
-      }else{
+      }
+      else{
         setDateSearch(filtered)
       }
     }
