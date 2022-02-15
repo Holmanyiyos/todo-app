@@ -14,11 +14,6 @@ function TodoItem(props){
     }
         return(
         <li className={`todo-item ${props.complete ? 'completed': ""}`}>
-        <div className="footer-item">
-            <div className="priority-container">
-            </div>
-    
-        </div>
         <h3>{props.title}</h3>
         <p className="text">{props.text}</p>
         <i 
@@ -30,6 +25,7 @@ function TodoItem(props){
         <i className="fas fa-edit edit-item"
         onClick={handelClick}
         ></i>
+        <p>Finish before: {props.date}</p>
     </li>
        )
 }

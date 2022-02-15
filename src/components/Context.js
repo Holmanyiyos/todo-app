@@ -44,6 +44,7 @@ function TodoProvider(props){
       return id
     }
     const addTodo =({title, text, date})=>{
+      const num = JSON.stringify(date).slice(1, 11)
       const newTodos = [...todos]
       const id = generateId()
       newTodos.push({
@@ -51,7 +52,7 @@ function TodoProvider(props){
         title,
         text,
         id:id,
-        date
+        date: num
       }) ;
       saveTodos(newTodos);
     }

@@ -23,12 +23,12 @@ function AppUI(){
     deleteTodo, 
     openModal,
     setOpenModal,
-    orderTodo,
     editTodo,
     dataEdit,
     whoModal,
     modal
   } = React.useContext(TodoContext);
+  // console.log(searchedTodos)
     return(
     <div className='window'>
     <aside className="aside" key="aside">
@@ -42,7 +42,7 @@ function AppUI(){
         <h2>Today <span>{today}</span></h2>
         <CreateTodoButton whoModal={whoModal} openModal={openModal} setOpenModal = {setOpenModal}/>
         </div>
-        <TodoList orderTodo={orderTodo}>
+        <TodoList>
             {loading && <Loading/>}
             {error && <p>Hubo un error, ya puedes enloquecer.</p>}
             {(!loading && !searchedTodos.length) && <p>Create your first task</p>}
@@ -51,7 +51,8 @@ function AppUI(){
           <TodoItem 
             key={todo.id} 
             title= {todo.title}
-            text= {todo.text} 
+            text= {todo.text}
+            date= {todo.date}
             complete= {todo.complete} 
             onComplete={()=> completeTodo(todo.id)}
             onDelete = {()=> deleteTodo(todo.id)}
