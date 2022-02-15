@@ -44,7 +44,7 @@ function TodoList(props){
         <section className="section-list">
             <div className="weekContainer">
                 {week.map(
-                    (e, index)=><div className="dateContainer" key={e} id={e} onClick={()=>handleFilterDays(e, numDay[index])}>
+                    (e, index)=><div className="dateContainer" key={e} id={e} onClick={()=>{handleFilterDays(e, numDay[index]); console.log(numDay[index])}}>
                             <h4>{e}</h4>
                             <p>{numDay[index]}</p>
                         </div>
