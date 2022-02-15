@@ -3,14 +3,15 @@ import "../css/Header.css"
 
 function Header(){
     const [picture, setPicture] = React.useState("");
-    const randomPicture =()=>Math.floor(Math.random()*826)
+    const randomPicture =()=>Math.floor(Math.random()*826);
+    
     function changePicture(){
         const img = randomPicture()
-        fetch(`https://rickandmortyapi.com/api/character/${img}`)
-        .then(data => data.json())
-        .then(img => img.image)
-        .then(image => localStorage.setItem("PICTURE", image))
-        .then(imagen => setPicture(imagen))
+            fetch(`https://rickandmortyapi.com/api/character/${img}`)
+            .then(data => data.json())
+            .then(img => img.image)
+            .then(image => localStorage.setItem("PICTURE", image))
+            .then(imagen => setPicture(imagen))
     }
     useEffect(()=>{
         if (localStorage.getItem("PICTURE")) {

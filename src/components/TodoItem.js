@@ -4,10 +4,10 @@ import "../css/TodoItem.css"
 function TodoItem(props){
     const handelClick= (e)=>{
         if (e.target.className.includes("edit-item")) {
-            console.log(e.target.className)
             props.editTodo(props.id)
             props.setOpenModal(prevState => !prevState)
             props.whoModal("edit")
+            window.scrollTo(0,0)
         }else{
 
         }

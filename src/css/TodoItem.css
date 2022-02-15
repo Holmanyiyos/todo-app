@@ -38,6 +38,7 @@
 .todo-item .text{
     width: 90%;
     margin-left: 0;
+    line-height: 1rem;
 }
 
 @media (max-width: 500px) {

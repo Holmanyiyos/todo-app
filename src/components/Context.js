@@ -7,6 +7,7 @@ function TodoProvider(props){
     const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage("TODOS_V1", []);
 
     const [search, setSearch] = React.useState('');
+    const [dateSearch, setDateSearch] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
     const [dataEdit, setDataEdit] = React.useState("");
     const [modal, setModal] = React.useState("");
@@ -20,10 +21,24 @@ function TodoProvider(props){
     if (!search.length >= 1) {
       searchedTodos = todos;
     }else{
-      const filtered = todos.filter(todo => todo.text.toLowerCase().includes(search.toLowerCase()));
+      const filtered = todos.filter(todo => todo.text.toLowerCase().includes(search.toLowerCase()) || todo.title.toLowerCase().includes(search.toLowerCase()));
       searchedTodos = filtered;
     }
+    if (!dateSearch.length >= 1) {
+      searchedTodos = todos;
+    }else{
+      searchedTodos = dateSearch;
+    }
   
+    const filterDay = (date)=>{
+      if (dateSearch.length >=1) {
+        setDateSearch("")
+      }else{
+      const filtered = todos.filter(todo => todo.date.includes(date));
+      setDateSearch(filtered)
+      }
+    }
+
     const generateId=()=>{
       let id = Math.random().toString(36).slice(2)
       return id
@@ -81,6 +96,7 @@ function TodoProvider(props){
             loading ,
             error ,
             totalTodos ,
+            filterDay,
             completeTodo ,
             completedTodos ,
             search,

@@ -38,10 +38,21 @@
     display: flex;
     justify-content: space-between;
 }
+.dateContainer{
+    cursor: pointer;
+}
+.clicked{
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    background-color: rgb(15, 247, 247);
+    border-radius: 50%;
+}
 
 @media (max-width: 500px) {
     .section-list{
-        height: 80%;
+        box-sizing: border-box;
+        height: 100vh;
     }
     .list{
         width: 100%;

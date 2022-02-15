@@ -5,6 +5,7 @@ function CreateTodoButton(props){
     const onClickButton =()=>{
      props.setOpenModal(prevState => !prevState)
      props.whoModal("create")
+     window.scrollTo(0,0)
     }
     return(
         <button 

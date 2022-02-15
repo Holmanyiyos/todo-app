@@ -22,10 +22,11 @@ const EditTodo = (todo)=>{
             const idCheck = document.getElementById("false");
             idCheck.checked = true
         }
-    })
+    },[])
 
     const onCancel = ()=> {
-        setOpenModal(false)
+        setOpenModal(false);
+        window.scrollTo(0,window.screen.height);
     }
     const completChecked = (e)=>{
         const completedTrue = document.getElementById('true');
@@ -36,12 +37,14 @@ const EditTodo = (todo)=>{
             e.target.checked = true;
             setIsCompleted((e.target.id === "true")? true : false);
         }else{
+            completedFalse.checked = true;
             setIsCompleted(false);
         }
     }
     const onSubmit = (e)=> {
         e.preventDefault();
-        setOpenModal(false)
+        setOpenModal(false);
+        window.scrollTo(0, window.screen.height);
         TodoToEdit({text: newTodoValue,title: newTodoTitle, complete:isCompleted, id: item.id})
     }
     const onChange = (e)=> {
