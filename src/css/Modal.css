@@ -11,7 +11,8 @@
 }
 
 .modal{
-    min-height: 60%;
+    height: 55%;
+    max-height: 520px;
     width: 50%;
     max-width: 400px;
     border-radius: 25px;
