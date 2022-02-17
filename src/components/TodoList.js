@@ -3,6 +3,7 @@ import { TodoContext } from "./Context";
 import "../css/TodoList.css"
 
 function TodoList(props){
+    const [prevDay, setPrevDay] = React.useState("");
     const {filterDay} = React.useContext(TodoContext);
     const today = new Date().toDateString();
     const numberDay = new Date().getDate();
@@ -20,14 +21,20 @@ function TodoList(props){
     }
 
     const handleFilterDays = (e, day)=>{
-        const date = new Date;
-        const month = date.getMonth() +1
-        const year = date.getFullYear()
-        paintNumber(e)
-        if (month > 9) {
-            filterDay(`${year}-${month}-${day}`)
+        if(prevDay === e){
+            filterDay("")
+            paintNumber(e)
         }else{
-            filterDay(`${year}-0${month}-${day}`)
+            const date = new Date;
+            const month = date.getMonth() +1
+            const year = date.getFullYear()
+            paintNumber(e)
+            if (month > 9) {
+                filterDay(`${year}-${month}-${day}`)
+            }else{
+                filterDay(`${year}-0${month}-${day}`)
+            }
+            setPrevDay(e)
         }
     }
 

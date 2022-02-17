@@ -32,12 +32,16 @@ function TodoProvider(props){
     }
   
     const filterDay = (date)=>{
-      const filtered = todos.filter(todo => todo.date.includes(date));
-      if (dateSearch.length >=1 && dateSearch === filtered) {
+      if (!date.length >=1 ) {
         setDateSearch([])
-      }
-      else{
-        setDateSearch(filtered)
+      }else{
+        const filtered = todos.filter(todo => todo.date.includes(date));
+        if (dateSearch.length >=1 && dateSearch === filtered) {
+          setDateSearch([])
+        }
+        else{
+          setDateSearch(filtered)
+        }
       }
     }
 
