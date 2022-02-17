@@ -1,6 +1,5 @@
 import React from "react";
 import { TodoContext } from "./Context";
-import { DatePicker } from "@material-ui/pickers";
 import "../css/TodoForm.css"
 
 function TodoForm(){
@@ -39,7 +38,7 @@ function TodoForm(){
                 </div>
                 <div className="date-container">
                     <label htmlFor="date">Date</label>
-                    <DatePicker className="date" id="date" value={dateSelected} onChange={setDateSelected}/>
+                    <input type="date" className="date" name="date" id="date" onChange={(e)=>setDateSelected(e.target.value)}/>
                 </div>
             </div>
             <div className="textArea-container">

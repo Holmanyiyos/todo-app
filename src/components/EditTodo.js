@@ -1,5 +1,4 @@
 import React from "react";
-import { DatePicker } from "@material-ui/pickers";
 import {TodoContext} from "./Context"
 
 const EditTodo = (todo)=>{
@@ -32,7 +31,7 @@ const EditTodo = (todo)=>{
         e.preventDefault();
         setOpenModal(false);
         window.scrollTo(0, window.screen.height);
-        TodoToEdit({text: newTodoValue,title: newTodoTitle, state:isState, id: item.id})
+        TodoToEdit({text: newTodoValue,title: newTodoTitle, state:isState, id: item.id, date: dateSelected})
     }
     const onChange = (e)=> {
         setNewTodoValue(e.target.value);
@@ -51,7 +50,7 @@ const EditTodo = (todo)=>{
                 </div>
                 <div className="date-container">
                     <label htmlFor="date">Date</label>
-                    <DatePicker className="date" id="date" value={dateSelected} onChange={setDateSelected}/>
+                    <input type="date" className="date" name="date" id="date" value={dateSelected} onChange={(e)=>setDateSelected(e.target.value)}/>
                 </div>
             </div>
             <div className="textArea-container edit-textArea">

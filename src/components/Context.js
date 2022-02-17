@@ -79,9 +79,10 @@ function TodoProvider(props){
     const TodoToEdit =(task)=>{
       const newTodos = [...todos];
       const todoIndex = todos.findIndex(todo => todo.id === task.id);
+      newTodos[todoIndex].title = task.title;
       newTodos[todoIndex].text = task.text;
-      newTodos[todoIndex].priority = task.priority;
       newTodos[todoIndex].state = task.state;
+      newTodos[todoIndex].date = task.date;
       saveTodos(newTodos)
     }
 
