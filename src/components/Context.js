@@ -24,7 +24,8 @@ function TodoProvider(props){
       if (!dateSearch.length >= 1) {
         searchedTodos = todos;
       }else{
-        searchedTodos = dateSearch;
+        const filtered = todos.filter(todo => todo.date.includes(dateSearch));
+        searchedTodos = filtered;
       }
     }else{
       const filtered = todos.filter(todo => todo.text.toLowerCase().includes(search.toLowerCase()) || todo.title.toLowerCase().includes(search.toLowerCase()));
@@ -32,17 +33,7 @@ function TodoProvider(props){
     }
   
     const filterDay = (date)=>{
-      if (!date.length >=1 ) {
-        setDateSearch([])
-      }else{
-        const filtered = todos.filter(todo => todo.date.includes(date));
-        if (dateSearch.length >=1 && dateSearch === filtered) {
-          setDateSearch([])
-        }
-        else{
-          setDateSearch(filtered)
-        }
-      }
+        setDateSearch(date)
     }
 
     const generateId=()=>{
